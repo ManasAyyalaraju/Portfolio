@@ -1,10 +1,4 @@
-import {
-  FaLinkedin,
-  FaGithub,
-  FaTwitter,
-  FaYoutube,
-  FaBook,
-} from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const icons = [
   { icon: <FaLinkedin />, href: "https://linkedin.com/in/manas-ayyalaraju" },

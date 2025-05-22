@@ -4,7 +4,7 @@ export default function HeroSection() {
   return (
     <section className="h-[90vh] flex flex-col justify-center items-center text-center bg-[url('/pattern.svg')] bg-cover">
       <h1 className="text-4xl sm:text-6xl font-extrabold text-gray-900">
-        HEY, I'M <span className="text-orange-500">MANAS</span>
+        HEY, I AM <span className="text-orange-500">MANAS</span>
       </h1>
       <p className="text-gray-600 max-w-xl mt-4 text-lg">
         A Full Stack Developer building modern Web Apps with React, Next.js, and
