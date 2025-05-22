@@ -57,7 +57,7 @@ export default function ContactForm() {
                 name="name"
                 type="text"
                 required
-                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded shadow-sm focus:ring-yellow-400 focus:border-yellow-400"
+                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded shadow-sm focus:ring-orange-400 focus:border-orange-400"
               />
             </div>
 
@@ -70,7 +70,7 @@ export default function ContactForm() {
                 name="email"
                 type="email"
                 required
-                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded shadow-sm focus:ring-yellow-400 focus:border-yellow-400"
+                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded shadow-sm focus:ring-orange-400 focus:border-orange-400"
               />
             </div>
 
@@ -83,14 +83,14 @@ export default function ContactForm() {
                 name="message"
                 required
                 rows={5}
-                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded shadow-sm focus:ring-yellow-400 focus:border-yellow-400"
+                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded shadow-sm focus:ring-orange-400 focus:border-orange-400"
               />
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className={`bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-2 rounded shadow ${
+              className={`bg-orange-400 hover:bg-orange-500 text-black font-semibold px-6 py-2 rounded shadow ${
                 loading ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >

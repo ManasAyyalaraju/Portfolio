@@ -1,18 +1,19 @@
 import Image from "next/image";
+
 export default function AboutSection() {
   return (
-    <section id="about" className="bg-white text-gray-900 py-20 px-6">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        {/* Left Side: Text */}
-        <div>
-          <h2 className="text-3xl font-bold mb-4">About Me</h2>
-          <p className="text-gray-700 text-lg leading-relaxed">
-            I am a Computer Information Systems student at the University of
+    <section className="bg-white py-16 px-4 sm:px-6 md:px-10">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
+        {/* Text */}
+        <div className="md:w-1/2 space-y-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+            About Me
+          </h2>
+          <p className="text-gray-700 text-base sm:text-lg">
+            I'm a Computer Information Systems student at the University of
             Texas at Dallas, passionate about building full-stack web
-            applications that solve real-world problems. I enjoy working with
-            technologies like Next.js, TypeScript, and PostgreSQL.
+            applications that solve real-world problems.
           </p>
-
           <div className="mt-6 space-y-2">
             <p>
               <strong> Education:</strong> BS in Computer Information Systems,
@@ -25,13 +26,16 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Right Side: Image */}
-        <div className="flex justify-center">
-          <Image
-            src="Fullpic.jpg"
-            alt="Manas Ayyalaraju"
-            className="rounded-xl shadow-lg w-72 h-72 object-cover"
-          />
+        {/* Image */}
+        <div className="md:w-1/2 flex justify-center">
+          <div className="w-[300px] h-[300px] relative rounded-xl overflow-hidden shadow-lg">
+            <Image
+              src="/Fullpic.jpg"
+              alt="Manas Ayyalaraju"
+              fill
+              className="object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>
