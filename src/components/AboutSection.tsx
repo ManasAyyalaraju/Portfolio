@@ -28,7 +28,7 @@ export default function AboutSection() {
 
         {/* Image */}
         <div className="md:w-1/2 flex justify-center">
-          <div className="w-[300px] h-[300px] relative rounded-xl overflow-hidden shadow-lg">
+          <div className="border-orange-500 border-2 w-[300px] h-[300px] relative rounded-xl overflow-hidden shadow-lg ">
             <Image
               src="/Fullpic.jpg"
               alt="Manas Ayyalaraju"

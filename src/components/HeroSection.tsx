@@ -2,7 +2,7 @@ import { ChevronDoubleDownIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 export default function HeroSection() {
   return (
-    <section className="min-h-[90vh] flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-10">
+    <section className="min-h-[90vh] flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-10 ">
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900">
         HEY, I AM <span className="text-orange-500">MANAS</span>
       </h1>

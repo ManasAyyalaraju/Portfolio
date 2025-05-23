@@ -23,7 +23,16 @@ body {
   background: #fff;
   color: #171717;
   font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 html {
   scroll-behavior: smooth;
+}
+header {
+  width: 100vw !important;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 }
