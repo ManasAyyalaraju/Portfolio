@@ -10,7 +10,7 @@ export default function AboutSection() {
             About Me
           </h2>
           <p className="text-gray-700 text-base sm:text-lg">
-            I'm a Computer Information Systems student at the University of
+            I am a Computer Information Systems student at the University of
             Texas at Dallas, passionate about building full-stack web
             applications that solve real-world problems.
           </p>

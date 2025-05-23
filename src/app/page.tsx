@@ -1,15 +1,26 @@
-import Navbar from "@/components/Navbar";
+import AboutSection from "@/components/AboutSection";
 import HeroSection from "@/components/HeroSection";
-import SocialSidebar from "@/components/SocialSidebar";
+import WorkExperienceSection from "@/components/WorkExperienceSection";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
-      <SocialSidebar />
-      <div className="max-w-4xl mx-auto px-6 py-10">
+    <main className="scroll-smooth">
+      <section id="home" className="min-h-screen snap-start">
         <HeroSection />
-      </div>
-    </>
+      </section>
+
+      <section id="about" className="min-h-screen snap-start">
+        <AboutSection />
+      </section>
+
+      <section id="experience" className="min-h-screen snap-start">
+        <WorkExperienceSection />
+      </section>
+
+      <section id="contact" className="min-h-screen snap-start">
+        <ContactForm />
+      </section>
+    </main>
   );
 }
