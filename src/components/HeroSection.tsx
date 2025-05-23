@@ -1,3 +1,5 @@
+import { ChevronDoubleDownIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 export default function HeroSection() {
   return (
     <section className="min-h-[90vh] flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-10">
@@ -13,6 +15,13 @@ export default function HeroSection() {
           View My Work
         </button>
       </a>
+      <Link
+        href="#about"
+        className="absolute bottom-8 animate-bounce text-gray-600 hover:text-orange-500"
+      >
+        <ChevronDoubleDownIcon className="w-8 h-8" />
+        <span className="sr-only">Scroll to About</span>
+      </Link>
     </section>
   );
 }
