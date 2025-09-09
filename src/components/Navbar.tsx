@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { FiMenu, FiX } from "react-icons/fi";
 
@@ -51,7 +51,7 @@ export default function Navbar() {
   };
 
   // Function to determine active section based on scroll position
-  const getActiveSection = () => {
+  const getActiveSection = useCallback(() => {
     if (pathname !== "/") {
       // If we're on a project page, highlight experience
       if (pathname.startsWith("/projects/")) {
@@ -71,7 +71,7 @@ export default function Navbar() {
       }
     }
     return "home";
-  };
+  }, [pathname]);
 
   // Effect to handle scroll detection
   useEffect(() => {
@@ -87,7 +87,7 @@ export default function Navbar() {
 
     // Cleanup
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname]);
+  }, [pathname, getActiveSection]);
 
   // Function to get nav item classes
   const getNavItemClasses = (sectionId: string) => {
@@ -123,34 +123,34 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <a
+            <Link
               href="/"
               onClick={(e) => handleNavClick(e, "/", "home")}
               className={getNavItemClasses("home")}
             >
               HOME
-            </a>
-            <a
+            </Link>
+            <Link
               href="/#about"
               onClick={(e) => handleNavClick(e, "/#about", "about")}
               className={getNavItemClasses("about")}
             >
               ABOUT
-            </a>
-            <a
+            </Link>
+            <Link
               href="/#experience"
               onClick={(e) => handleNavClick(e, "/#experience", "experience")}
               className={getNavItemClasses("experience")}
             >
               EXPERIENCE
-            </a>
-            <a
+            </Link>
+            <Link
               href="/#contact"
               onClick={(e) => handleNavClick(e, "/#contact", "contact")}
               className={getNavItemClasses("contact")}
             >
               CONTACT
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -168,34 +168,34 @@ export default function Navbar() {
         {isOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-gray-100">
             <div className="flex flex-col gap-4 pt-4">
-              <a
+              <Link
                 href="/"
                 onClick={(e) => handleNavClick(e, "/", "home")}
                 className={getNavItemClasses("home")}
               >
                 HOME
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#about"
                 onClick={(e) => handleNavClick(e, "/#about", "about")}
                 className={getNavItemClasses("about")}
               >
                 ABOUT
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#experience"
                 onClick={(e) => handleNavClick(e, "/#experience", "experience")}
                 className={getNavItemClasses("experience")}
               >
                 EXPERIENCE
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#contact"
                 onClick={(e) => handleNavClick(e, "/#contact", "contact")}
                 className={getNavItemClasses("contact")}
               >
                 CONTACT
-              </a>
+              </Link>
             </div>
           </div>
         )}

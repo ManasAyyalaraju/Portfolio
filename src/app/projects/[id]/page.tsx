@@ -8,9 +8,9 @@ import {
 } from "@heroicons/react/24/outline";
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
