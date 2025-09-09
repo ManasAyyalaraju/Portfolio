@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { projects } from "@/data/projects";
+
 export default function WorkExperienceSection() {
   return (
     <section id="experience" className="bg-white text-gray-900 py-20 px-6">
@@ -6,82 +9,72 @@ export default function WorkExperienceSection() {
           Work Experience
         </h2>
 
-        {/* Sudur Capital */}
-        <div className="bg-gray-100 p-6 rounded-xl shadow-md mb-8 transition hover:shadow-lg">
-          <div className="flex flex-col md:flex-row justify-between md:items-center mb-4">
-            <div>
-              <h3 className="text-xl font-semibold text-orange-500">
-                Sudur Capital
-              </h3>
-              <p className="text-sm text-gray-600">
-                Intern · Nov 2024 – Present · Frisco, TX
-              </p>
-            </div>
-            <div className="mt-2 md:mt-0 text-sm bg-orange-100 text-orange-500 px-3 py-1 rounded-full w-fit">
-              Next.js · TypeScript · PostgreSQL
-            </div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          {projects.map((project) => (
+            <Link
+              key={project.id}
+              href={`/projects/${project.id}`}
+              className="group block"
+            >
+              <div className="bg-gray-100 p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer">
+                <div className="flex flex-col justify-between h-full">
+                  <div>
+                    <div className="flex flex-col md:flex-row justify-between md:items-center mb-4">
+                      <div>
+                        <h3 className="text-xl font-semibold text-orange-500 group-hover:text-orange-600 transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className="text-sm text-gray-600">
+                          {project.role} · {project.duration} ·{" "}
+                          {project.location}
+                        </p>
+                      </div>
+                      <div className="mt-2 md:mt-0 text-sm bg-orange-100 text-orange-500 px-3 py-1 rounded-full w-fit">
+                        {project.technologies.slice(0, 3).join(" · ")}
+                      </div>
+                    </div>
 
-          <ul className="list-disc ml-5 text-gray-700 space-y-2">
-            <li>
-              Built a real estate investment portal connecting investors with
-              land development sponsors.
-            </li>
-            <li>
-              Collaborated with a 7-member dev team to launch an MVP in 3
-              months.
-            </li>
-            <li>
-              Designed a scalable PostgreSQL database for secure, efficient
-              transactions.
-            </li>
-            <li>
-              Wrote and tracked 20+ user stories in Jira to streamline agile
-              workflows.
-            </li>
-            <li>
-              Improved platform UX/UI using responsive design with HTML5, CSS,
-              and Next.js.
-            </li>
-          </ul>
+                    <p className="text-gray-700 mb-4 leading-relaxed">
+                      {project.shortDescription}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center text-orange-500 group-hover:text-orange-600 transition-colors">
+                    <span className="text-sm font-medium">View Case Study</span>
+                    <svg
+                      className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
 
-        {/* IBM Case Competition */}
-        <div className="bg-gray-100 p-6 rounded-xl shadow-md transition hover:shadow-lg">
-          <div className="flex flex-col md:flex-row justify-between md:items-center mb-4">
-            <div>
-              <h3 className="text-xl font-semibold text-orange-500">
-                IBM Case Competition
-              </h3>
-              <p className="text-sm text-gray-600">Participant · Fall 2024</p>
-            </div>
-            <div className="mt-2 md:mt-0 text-sm bg-orange-100 text-orange-500 px-3 py-1 rounded-full w-fit">
-              Watson AI · Python · Data Visualization
-            </div>
-          </div>
-
-          <ul className="list-disc ml-5 text-gray-700 space-y-2">
-            <li>
-              Used IBM Watson AI to identify food deserts by analyzing geo-data,
-              increasing detection accuracy by 25%.
-            </li>
-            <li>
-              Designed a predictive model to optimize food access in DFW
-              communities.
-            </li>
-            <li>
-              Presented data-driven strategies to IBM judges and provided
-              recommendations to local governments.
-            </li>
-            <li>
-              Integrated API data streams for model training and ensured high
-              data quality.
-            </li>
-          </ul>
-        </div>
         <div className="text-center mt-12">
           <a
-            href="\Manas_Ayyalaraju_Resume.pdf"
+            href="/Manas_Ayyalaraju_Resume.pdf"
             download
             className="inline-block px-6 py-3 bg-orange-400 hover:bg-orange-500 text-black font-semibold rounded shadow transition"
           >

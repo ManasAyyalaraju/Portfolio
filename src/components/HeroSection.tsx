@@ -7,10 +7,11 @@ export default function HeroSection() {
         HEY, I AM <span className="text-orange-500">MANAS</span>
       </h1>
       <p className="mt-4 text-gray-600 text-base sm:text-lg max-w-xl">
-        A Full Stack Developer building modern Web Apps with React, Next.js, and
-        PostgreSQL — solving real-world problems through scalable design.
+        A Full Stack Developer & Data Analyst skilled in React, Next.js,
+        PostgreSQL, and Python — building modern web apps and turning data into
+        insights.
       </p>
-      <a href="/experience" className="mt-6">
+      <a href="#experience" className="mt-6">
         <button className="px-6 py-3 bg-orange-400 hover:bg-orange-500 text-black font-semibold rounded shadow">
           View My Work
         </button>

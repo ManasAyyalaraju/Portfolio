@@ -1,12 +1,13 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { FiMenu, FiX } from "react-icons/fi";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const router = useRouter();
   const pathname = usePathname();
 
@@ -49,6 +50,57 @@ export default function Navbar() {
     }
   };
 
+  // Function to determine active section based on scroll position
+  const getActiveSection = () => {
+    if (pathname !== "/") {
+      // If we're on a project page, highlight experience
+      if (pathname.startsWith("/projects/")) {
+        return "experience";
+      }
+      // For other pages, you can add specific logic here
+      return "home";
+    }
+
+    const sections = ["home", "about", "experience", "contact"];
+    const scrollPosition = window.scrollY + 100; // Offset for navbar height
+
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const section = document.getElementById(sections[i]);
+      if (section && section.offsetTop <= scrollPosition) {
+        return sections[i];
+      }
+    }
+    return "home";
+  };
+
+  // Effect to handle scroll detection
+  useEffect(() => {
+    const handleScroll = () => {
+      setActiveSection(getActiveSection());
+    };
+
+    // Set initial active section
+    setActiveSection(getActiveSection());
+
+    // Add scroll listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [pathname]);
+
+  // Function to get nav item classes
+  const getNavItemClasses = (sectionId: string) => {
+    const baseClasses =
+      "text-sm font-bold transition-colors tracking-wider cursor-pointer";
+    const isActive = activeSection === sectionId;
+
+    if (isActive) {
+      return `${baseClasses} text-orange-500`;
+    }
+    return `${baseClasses} text-gray-700 hover:text-orange-500`;
+  };
+
   return (
     <header className="sticky top-0 z-50 w-screen bg-white border-b border-gray-100">
       <div className="w-screen px-6 py-6 shadow-lg">
@@ -74,28 +126,28 @@ export default function Navbar() {
             <a
               href="/"
               onClick={(e) => handleNavClick(e, "/", "home")}
-              className="text-sm font-bold text-gray-700 hover:text-orange-500 transition-colors tracking-wider cursor-pointer"
+              className={getNavItemClasses("home")}
             >
               HOME
             </a>
             <a
               href="/#about"
               onClick={(e) => handleNavClick(e, "/#about", "about")}
-              className="text-sm font-bold text-gray-700 hover:text-orange-500 transition-colors tracking-wider cursor-pointer"
+              className={getNavItemClasses("about")}
             >
               ABOUT
             </a>
             <a
               href="/#experience"
               onClick={(e) => handleNavClick(e, "/#experience", "experience")}
-              className="text-sm font-bold text-gray-700 hover:text-orange-500 transition-colors tracking-wider cursor-pointer"
+              className={getNavItemClasses("experience")}
             >
               EXPERIENCE
             </a>
             <a
               href="/#contact"
               onClick={(e) => handleNavClick(e, "/#contact", "contact")}
-              className="text-sm font-bold text-gray-700 hover:text-orange-500 transition-colors tracking-wider cursor-pointer"
+              className={getNavItemClasses("contact")}
             >
               CONTACT
             </a>
@@ -119,28 +171,28 @@ export default function Navbar() {
               <a
                 href="/"
                 onClick={(e) => handleNavClick(e, "/", "home")}
-                className="text-sm font-bold text-gray-700 hover:text-orange-500 transition-colors tracking-wider cursor-pointer"
+                className={getNavItemClasses("home")}
               >
                 HOME
               </a>
               <a
                 href="/#about"
                 onClick={(e) => handleNavClick(e, "/#about", "about")}
-                className="text-sm font-bold text-gray-700 hover:text-orange-500 transition-colors tracking-wider cursor-pointer"
+                className={getNavItemClasses("about")}
               >
                 ABOUT
               </a>
               <a
                 href="/#experience"
                 onClick={(e) => handleNavClick(e, "/#experience", "experience")}
-                className="text-sm font-bold text-gray-700 hover:text-orange-500 transition-colors tracking-wider cursor-pointer"
+                className={getNavItemClasses("experience")}
               >
                 EXPERIENCE
               </a>
               <a
                 href="/#contact"
                 onClick={(e) => handleNavClick(e, "/#contact", "contact")}
-                className="text-sm font-bold text-gray-700 hover:text-orange-500 transition-colors tracking-wider cursor-pointer"
+                className={getNavItemClasses("contact")}
               >
                 CONTACT
               </a>
