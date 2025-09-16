@@ -76,7 +76,7 @@ export default function WorkExperienceSection() {
           <a
             href="/Manas_Ayyalaraju_Resume.pdf"
             download
-            className="inline-block px-6 py-3 bg-orange-400 hover:bg-orange-500 text-black font-semibold rounded shadow transition"
+            className="inline-block px-6 py-3 rounded-xl btn-glass-orange text-black font-semibold transition"
           >
             Download Resume
           </a>

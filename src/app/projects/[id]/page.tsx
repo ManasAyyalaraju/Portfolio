@@ -72,7 +72,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 bg-orange-400 hover:bg-orange-500 text-black font-semibold rounded shadow transition"
+                className="inline-flex items-center px-4 py-2 rounded-xl btn-glass-orange text-black font-semibold transition"
               >
                 <ArrowTopRightOnSquareIcon className="w-4 h-4 mr-2" />
                 Live Demo
@@ -83,7 +83,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold rounded shadow transition"
+                className="inline-flex items-center px-4 py-2 rounded-xl btn-glass-orange text-black font-semibold transition"
               >
                 <CommandLineIcon className="w-4 h-4 mr-2" />
                 View Code
@@ -215,7 +215,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="text-center pt-8 border-t border-gray-200">
           <Link
             href="/#experience"
-            className="inline-flex items-center px-6 py-3 bg-orange-400 hover:bg-orange-500 text-black font-semibold rounded shadow transition"
+            className="inline-flex items-center px-6 py-3 rounded-xl btn-glass-orange text-black font-semibold transition"
           >
             <ArrowLeftIcon className="w-5 h-5 mr-2" />
             Back to All Projects

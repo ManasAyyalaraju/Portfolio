@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import { FaLinkedin } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -13,7 +15,7 @@ export default function ContactForm() {
 
     const form = e.currentTarget;
     const data = {
-      name: form.name.valueOf,
+      name: (form as any).name.value,
       email: form.email.value,
       message: form.message.value,
     };
@@ -90,7 +92,7 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={loading}
-              className={`bg-orange-400 hover:bg-orange-500 text-black font-semibold px-6 py-2 rounded shadow ${
+              className={`btn-glass-orange rounded-xl text-black font-semibold px-6 py-2 ${
                 loading ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >
@@ -100,6 +102,29 @@ export default function ContactForm() {
             {error && <p className="text-red-600 text-sm mt-2">{error}</p>}
           </form>
         )}
+
+        {/* Quick contact buttons inside the contact section */}
+        <p className="mt-8 mb-3 text-sm text-gray-500">
+          Other ways to contact me:
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a
+            href="https://www.linkedin.com/in/manas-ayyalaraju/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 btn-glass-orange"
+          >
+            <FaLinkedin className="text-lg" />
+            <span>LinkedIn</span>
+          </a>
+          <a
+            href="mailto:manas.ayyalaraju@gmail.com"
+            className="w-full inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 btn-glass-orange"
+          >
+            <MdEmail className="text-lg" />
+            <span>Gmail</span>
+          </a>
+        </div>
       </div>
     </section>
   );

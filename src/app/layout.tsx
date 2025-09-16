@@ -22,7 +22,7 @@ export default function RootLayout({
         className={`${inter.className} w-full bg-white text-gray-900 text-base `}
       >
         <Navbar />
-        <main className="max-w-5xl mx-auto px-6 md:px-10">{children}</main>
+        <main className="max-w-8xl mx-auto px-6 md:px-10">{children}</main>
         <Analytics />
       </body>
     </html>

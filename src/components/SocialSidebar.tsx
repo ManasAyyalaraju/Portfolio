@@ -14,7 +14,7 @@ export default function SocialSidebar() {
           href={href}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center justify-center w-10 h-10 bg-white text-gray-800 rounded shadow hover:bg-orange-400 hover:text-black transition"
+          className="flex items-center justify-center w-10 h-10 rounded-xl btn-glass-orange text-gray-800 transition"
         >
           {icon}
         </a>

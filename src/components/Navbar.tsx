@@ -102,8 +102,8 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-screen bg-white border-b border-gray-100">
-      <div className="w-screen px-6 py-6 shadow-lg">
+    <header className="sticky top-0 z-50 w-screen border-b border-white/20 bg-white/60 backdrop-blur-md supports-[backdrop-filter]:bg-white/40">
+      <div className="w-screen px-6 py-4">
         <div className="max-w-8xl mx-auto flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-3">
@@ -157,7 +157,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-2xl text-gray-700 hover:text-orange-500 transition-colors"
+              className="text-2xl text-gray-700 rounded-xl px-2 py-1 btn-glass-orange"
             >
               {isOpen ? <FiX /> : <FiMenu />}
             </button>
@@ -166,7 +166,7 @@ export default function Navbar() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-gray-100">
+          <div className="md:hidden mt-4 pb-4 border-t border-white/20 bg-white/60 backdrop-blur-md supports-[backdrop-filter]:bg-white/40 rounded-xl">
             <div className="flex flex-col gap-4 pt-4">
               <Link
                 href="/"

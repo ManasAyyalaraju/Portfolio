@@ -36,3 +36,38 @@ header {
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
 }
+
+/* Glass button: rounded, orange-tinted, translucent with blur */
+.btn-glass-orange {
+  background: rgba(255, 120, 31, 0.35); /* darker orange tint */
+  border: 1px solid rgba(255, 120, 31, 0.55);
+  color: #111827; /* gray-900 */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 6px 24px rgba(255, 120, 31, 0.25);
+  transition: background-color 150ms ease, box-shadow 150ms ease, transform 150ms ease, border-color 150ms ease;
+}
+.btn-glass-orange:hover {
+  background: rgba(255, 120, 31, 0.7);
+  border-color: rgba(255, 120, 31, 0.8);
+  box-shadow: 0 10px 40px rgba(255, 120, 31, 0.45);
+}
+.btn-glass-orange:active {
+  transform: translateY(1px);
+}
+
+/* Typing caret animation */
+.typing-caret::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: #111827; /* gray-900 */
+  margin-left: 4px;
+  animation: caret-blink 1s steps(1) infinite;
+}
+
+@keyframes caret-blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}

@@ -2,33 +2,35 @@ import Image from "next/image";
 
 export default function AboutSection() {
   return (
-    <section className="bg-white py-16 px-4 sm:px-6 md:px-10">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
+    <section className="bg-white py-20 px-4 sm:px-8 md:px-12">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-16">
         {/* Text */}
-        <div className="md:w-1/2 space-y-4">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+        <div className="md:w-1/2 space-y-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
             About Me
           </h2>
-          <p className="text-gray-700 text-base sm:text-lg">
-            I am a Computer Information Systems student at the University of
-            Texas at Dallas, passionate about building full-stack web
-            applications that solve real-world problems.
+          <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+            I love turning data into stories that drive smart decisions. Whether
+            it’s analyzing sports schedules or refining marketing strategies, I
+            get excited about finding trends and presenting them in clear,
+            visual ways.I enjoy solving problems with data and bringing results
+            to life through clean, intuitive full-stack apps.
           </p>
-          <div className="mt-6 space-y-2">
-            <p>
-              <strong> Education:</strong> BS in Computer Information Systems,
-              University of Texas - Dallas (May 2026)
+          <div className="mt-8 space-y-3">
+            <p className="text-gray-900">
+              <strong>Education:</strong> BS in Computer Information Systems,
+              University of Texas at Dallas (May 2026)
             </p>
-            <p>
-              <strong> Skills:</strong> Next.js, React, TypeScript, PostgreSQL,
-              Python, Jira
+            <p className="text-gray-900">
+              <strong>Skills:</strong> Python, SQL, Tableau, React, Next.js,
+              TypeScript, Node.js, PostgreSQL, Tailwind CSS
             </p>
           </div>
         </div>
 
         {/* Image */}
         <div className="md:w-1/2 flex justify-center">
-          <div className="border-orange-500 border-2 w-[300px] h-[300px] relative rounded-xl overflow-hidden shadow-lg ">
+          <div className="border-orange-500 border-2 w-[320px] h-[320px] md:w-[360px] md:h-[360px] relative rounded-2xl overflow-hidden shadow-xl">
             <Image
               src="/Fullpic.jpg"
               alt="Manas Ayyalaraju"
