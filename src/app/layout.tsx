@@ -9,6 +9,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Manas Ayyalaraju Portfolio",
   description: "Personal portfolio of Manas Ayyalaraju",
+  icons: {
+    icon: "/Logo_web_White.svg",
+    shortcut: "/Logo_web_White.svg",
+  },
 };
 
 export default function RootLayout({
