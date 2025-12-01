@@ -25,6 +25,47 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "personal-finance-health-predictor",
+    title: "Personal Finance Health Predictor",
+    company: "Personal Project",
+    role: "Data Scientist / ML Engineer",
+    duration: "2024",
+    location: "Remote",
+    technologies: ["Python", "FastAPI", "XGBoost", "LightGBM", "Scikit-learn"],
+    shortDescription:
+      "Enterprise-grade machine learning system demonstrating the complete data science lifecycle from raw data exploration through production deployment. Built three predictive models for credit risk assessment, fraud detection, and customer segmentation, processing 285,000+ financial records.",
+    overview:
+      "An enterprise-grade machine learning system that demonstrates the complete data science lifecycle from raw data exploration through production deployment. This project showcases expertise in building scalable, production-ready AI solutions for the financial services industry. Built three predictive models addressing critical fintech challenges: credit risk assessment, fraud detection, and customer segmentation. Processed 285,000+ financial records across three datasets (German Credit, Lending Club, Credit Card Fraud) to deliver actionable insights and automated decision-making capabilities.",
+    challenge:
+      "Financial services organizations face critical challenges in credit risk assessment, fraud detection, and customer segmentation. Traditional methods are inefficient, lack accuracy, and cannot scale to handle large volumes of transactions. There was a need for automated, data-driven solutions that could process hundreds of thousands of records, handle severely imbalanced datasets, and provide real-time predictions in production environments.",
+    solution:
+      "Developed a comprehensive end-to-end ML platform with three specialized models: credit risk prediction using ensemble methods (XGBoost, LightGBM), fraud detection with advanced anomaly detection techniques (Isolation Forest, SMOTE), and customer segmentation using multiple clustering algorithms. Built a production-ready FastAPI RESTful API with comprehensive validation, error handling, and testing. Implemented rigorous data engineering pipelines with feature engineering, handling of class imbalance, and resolution of data leakage issues.",
+    results: [
+      "Credit Risk: Achieved 70% ROC-AUC with XGBoost, identified top 15 risk indicators, estimated $500K+ annual cost savings",
+      "Fraud Detection: Achieved exceptional 97.7% ROC-AUC and 85.7% recall on severely imbalanced data (0.17% fraud rate), estimated $16K+ monthly fraud prevention savings",
+      "Customer Segmentation: Achieved 0.39 Silhouette Score, identified 4 distinct customer personas enabling 15-20% improvement in marketing campaign conversion rates",
+      "Processed 285,000+ financial records across three datasets with comprehensive EDA and feature engineering",
+      "Built production-ready FastAPI application with 3 prediction endpoints, comprehensive test suite, and interactive API documentation",
+      "Delivered combined systems with estimated ROI of 250%+ through operational efficiency gains",
+    ],
+    keyFeatures: [
+      "Three production-ready ML models: Credit Risk, Fraud Detection, and Customer Segmentation",
+      "Comprehensive EDA with 26+ engineered features and intelligent feature scaling",
+      "Advanced handling of class imbalance using SMOTE and ensemble methods",
+      "Data leakage detection and resolution in real-world scenarios",
+      "RESTful API with FastAPI, Pydantic validation, and Swagger UI documentation",
+      "Comprehensive test suite with 10+ unit tests achieving full endpoint coverage",
+      "40+ publication-quality visualizations documenting model performance",
+      "Business impact analysis with actionable recommendations and ROI calculations",
+    ],
+    techStack: {
+      frontend: ["Jupyter Notebooks", "Matplotlib", "Seaborn", "Plotly"],
+      backend: ["Python 3.8+", "FastAPI", "Uvicorn", "Pydantic"],
+      database: ["CSV", "JSON", "Pickle (Model Storage)"],
+      tools: ["Git/GitHub", "VS Code", "Jupyter Lab", "Pytest", "Scikit-learn", "XGBoost", "LightGBM", "Imbalanced-learn", "Pandas", "NumPy"],
+    },
+  },
+  {
     id: "sudur-capital",
     title: "Real Estate Investment Portal",
     company: "Sudur Capital",
@@ -136,44 +177,6 @@ export const projects: Project[] = [
       backend: ["Python", "Pandas", "NumPy"],
       database: ["CSV", "JSON", "NBA API Data"],
       tools: ["Git", "Jupyter Lab", "Python Libraries"],
-    },
-  },
-  {
-    id: "air-france-marketing-optimization",
-    title: "Digital Marketing Optimization Platform",
-    company: "Air France",
-    role: "Data Analyst",
-    duration: "Spring 2025",
-    location: "Remote",
-    technologies: ["Excel", "Data Visualization"],
-    shortDescription:
-      "Analyzed advertising performance across 5 major publishers, identifying campaign optimization opportunities and building interactive dashboards for data-driven decision making.",
-    overview:
-      "Led a comprehensive digital marketing optimization project for Air France, analyzing advertising performance across multiple publishers and regions. The project focused on identifying performance variations, optimizing budget allocation, and building interactive reporting tools to support data-driven marketing decisions. The analysis covered over 50,000 impressions and conversion records to provide actionable insights for campaign optimization.",
-    challenge:
-      "Air France's digital marketing campaigns were running across 5 major publishers with varying performance metrics. Campaign click-through rates varied by over 10% across different regions, indicating significant optimization opportunities. The marketing team lacked comprehensive visibility into campaign performance and needed data-driven insights to improve ROI and optimize budget allocation across different channels and regions.",
-    solution:
-      "Developed comprehensive ROA (Return on Advertising) models and detailed cost-per-click analyses using Excel and advanced data visualization techniques. Built interactive dashboards and pivot-table reports that consolidated performance data from all publishers. Created market-specific optimization strategies based on regional performance variations and developed improved bidding strategies for high-performing campaigns.",
-    results: [
-      "Analyzed advertising performance across 5 major publishers with 10%+ CTR variations by region",
-      "Developed comprehensive ROA models enabling data-driven budget allocation",
-      "Built interactive dashboards consolidating 50,000+ impressions and conversion records",
-      "Improved stakeholder visibility and decision-making capabilities",
-      "Projected 15-20% ROI increase through optimized campaign strategies",
-    ],
-    keyFeatures: [
-      "Multi-publisher advertising performance analysis",
-      "Regional performance variation identification",
-      "ROA modeling and cost-per-click analysis",
-      "Interactive dashboards and pivot-table reports",
-      "Market-specific optimization recommendations",
-      "Data-driven budget allocation strategies",
-    ],
-    techStack: {
-      frontend: ["Excel", "Pivot Tables", "Data Visualization"],
-      backend: ["Excel VBA", "Advanced Excel Functions"],
-      database: ["Excel Workbooks", "CSV", "Marketing Data"],
-      tools: ["Excel", "Power BI", "Data Analysis Tools"],
     },
   },
 ];

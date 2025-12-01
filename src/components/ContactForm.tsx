@@ -13,29 +13,34 @@ export default function ContactForm() {
     setLoading(true);
     setError("");
 
-    const form = e.currentTarget;
+    const formData = new FormData(e.currentTarget);
     const data = {
-      name: (form as any).name.value,
-      email: form.email.value,
-      message: form.message.value,
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
     };
 
-    const response = await fetch("https://formspree.io/f/xzzrqedd", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    try {
+      const response = await fetch("https://formspree.io/f/xzzrqedd", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    setLoading(false);
+      setLoading(false);
 
-    if (response.ok) {
-      setSubmitted(true);
-      form.reset();
-    } else {
-      setError("Oops! Something went wrong.");
+      if (response.ok) {
+        setSubmitted(true);
+        e.currentTarget.reset();
+      } else {
+        setError("Oops! Something went wrong.");
+      }
+    } catch (err) {
+      setLoading(false);
+      setError("Error submitting form. Please try again.");
     }
   };
 
@@ -92,9 +97,8 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={loading}
-              className={`btn-glass-orange rounded-xl text-black font-semibold px-6 py-2 ${
-                loading ? "opacity-50 cursor-not-allowed" : ""
-              }`}
+              className={`btn-glass-orange rounded-xl text-black font-semibold px-6 py-2 ${loading ? "opacity-50 cursor-not-allowed" : ""
+                }`}
             >
               {loading ? "Sending..." : "Send Message"}
             </button>

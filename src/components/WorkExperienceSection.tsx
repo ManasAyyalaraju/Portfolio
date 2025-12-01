@@ -14,9 +14,9 @@ export default function WorkExperienceSection() {
             <Link
               key={project.id}
               href={`/projects/${project.id}`}
-              className="group block"
+              className="group block h-full"
             >
-              <div className="bg-gray-100 p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer">
+              <div className="bg-gray-100 p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer h-full">
                 <div className="flex flex-col justify-between h-full">
                   <div>
                     <div className="flex flex-col md:flex-row justify-between md:items-center mb-4">
