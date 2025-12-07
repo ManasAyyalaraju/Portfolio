@@ -74,8 +74,8 @@ export default function WorkExperienceSection() {
 
         <div className="text-center mt-12">
           <a
-            href="/Manas_Ayyalaraju_Resume.pdf"
-            download
+            href="/Manas_Ayyalaraju_Resume (2026).pdf"
+            download="Manas_Ayyalaraju_Resume (2026).pdf"
             className="inline-block px-6 py-3 rounded-xl btn-glass-orange text-black font-semibold transition"
           >
             Download Resume

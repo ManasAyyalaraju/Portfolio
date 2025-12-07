@@ -11,10 +11,11 @@ export default function AboutSection() {
           </h2>
           <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
             I love turning data into stories that drive smart decisions. Whether
-            it’s analyzing sports schedules or refining marketing strategies, I
-            get excited about finding trends and presenting them in clear,
-            visual ways.I enjoy solving problems with data and bringing results
-            to life through clean, intuitive full-stack apps.
+            it's building AI-powered solutions or developing full-stack
+            applications, I get excited about finding patterns and presenting
+            them in clear, actionable ways. I enjoy solving problems with AI,
+            data, and modern web technologies, bringing intelligent solutions to
+            life.
           </p>
           <div className="mt-8 space-y-3">
             <p className="text-gray-900">
@@ -22,8 +23,8 @@ export default function AboutSection() {
               University of Texas at Dallas (May 2026)
             </p>
             <p className="text-gray-900">
-              <strong>Skills:</strong> Python, SQL, Tableau, React, Next.js,
-              TypeScript, Node.js, PostgreSQL, Tailwind CSS
+              <strong>Skills:</strong> Python, Machine Learning, OpenAI/LLMs,
+              FastAPI, SQL, Next.js, TypeScript, PostgreSQL
             </p>
           </div>
         </div>

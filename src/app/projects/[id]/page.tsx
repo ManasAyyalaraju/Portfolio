@@ -89,15 +89,21 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 View Code
               </a>
             )}
-            <a
-              href="https://github.com/ManasAyyalaraju"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 rounded-xl btn-glass-orange text-black font-semibold transition"
-            >
-              <CommandLineIcon className="w-4 h-4 mr-2" />
-              My GitHub
-            </a>
+            {project.id !== "ai-powered-resume-tailor" && (
+              <a
+                href={
+                  project.id === "personal-finance-health-predictor"
+                    ? "https://github.com/ManasAyyalaraju/personal-finance-health-predictor.git"
+                    : "https://github.com/ManasAyyalaraju"
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 rounded-xl btn-glass-orange text-black font-semibold transition"
+              >
+                <CommandLineIcon className="w-4 h-4 mr-2" />
+                My GitHub
+              </a>
+            )}
           </div>
         </div>
 

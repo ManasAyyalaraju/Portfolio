@@ -25,11 +25,54 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "ai-powered-resume-tailor",
+    title: "AI-Powered Resume Tailor",
+    company: "Personal Project",
+    role: "AI Engineer",
+    duration: "Fall 2025",
+    location: "Remote",
+    technologies: ["Next.js", "TypeScript", "FastAPI", "OpenAI GPT-4o-mini", "LaTeX"],
+    shortDescription:
+      "AI-powered platform that automatically customizes resumes for specific job descriptions using GPT-4o-mini, maximizing ATS compatibility and improving interview success rates. Built intelligent domain detection across 4+ industries with generative optimization pipelines, achieving 40% keyword recall improvement and 30-35% ATS match alignment boost.",
+    overview:
+      "AI-Powered Resume Tailor is an intelligent AI product that leverages GPT-4o-mini to automatically customize resumes for specific job descriptions. The system uses advanced domain detection algorithms to identify job industries and sub-domains, then applies generative optimization pipelines that intelligently reorder skills by relevance, evaluate resume completeness, and rewrite content while preserving structure and metadata. The platform eliminates hours of manual resume editing by automatically tailoring resumes to match job descriptions in seconds, using domain-specific AI prompts and intelligent keyword optimization.",
+    challenge:
+      "Job seekers spend countless hours manually editing resumes for each application, often missing critical keywords and failing to optimize content for ATS systems. Traditional resume editing is time-consuming, error-prone, and lacks the intelligence to match job requirements effectively. There was a need for an AI-powered solution that could intelligently detect job domains, optimize keyword density, and dynamically adjust resume content to maximize ATS compatibility while preserving factual accuracy.",
+    solution:
+      "Built an intelligent resume-tailoring system using GPT-4o-mini with advanced domain detection across 4+ major industries. Designed generative optimization pipelines that reorder skills by relevance, evaluate resume completeness, and rewrite bullets while preserving structure and metadata. Implemented intelligent keyword extraction and optimization algorithms that dynamically adjust resume density to match job descriptions. Created domain-specific AI prompts tailored to different industries for precise content customization. Deployed the platform using Dockerized FastAPI for LLM inference and LaTeX-based PDF generation on Render & Vercel with CI/CD automation.",
+    results: [
+      "Improved keyword recall by 40% through intelligent domain detection and keyword optimization algorithms",
+      "Boosted ATS match alignment by 30-35% across test job descriptions through generative optimization pipelines",
+      "Built domain detection system across 4+ major industries with intelligent classification",
+      "Designed generative pipelines that dynamically adjust resume density to match job descriptions",
+      "Created ATS-optimized resume generation that preserves structure and metadata while optimizing content",
+      "Deployed scalable AI platform with Dockerized FastAPI for LLM inference and automated CI/CD pipelines",
+    ],
+    keyFeatures: [
+      "Intelligent domain detection system across 4+ major industries with automatic classification",
+      "Generative optimization pipelines that reorder skills by relevance and evaluate resume completeness",
+      "AI-powered content rewriting that preserves structure and metadata while optimizing for ATS compatibility",
+      "Dynamic resume density adjustment that matches job description requirements",
+      "Keyword optimization algorithms that improve recall by 40% and ATS match alignment by 30-35%",
+      "Domain-specific AI prompts tailored to different industries for precise customization",
+      "LaTeX-based PDF generation with professional formatting and ATS-friendly output",
+      "Scalable AI infrastructure with Dockerized FastAPI for LLM inference and automated deployment",
+    ],
+    techStack: {
+      frontend: ["Next.js", "TypeScript", "React"],
+      backend: ["Python 3.11+", "FastAPI", "OpenAI GPT-4o-mini", "LLM Inference", "LaTeX (pdflatex)", "Jinja2", "Pydantic"],
+      database: ["JSON (Temporary Data Processing)", "PDF Storage"],
+      tools: ["Docker", "Render.com", "Vercel", "Git/GitHub", "CI/CD Automation"],
+    },
+    liveUrl: "https://ai-powered-resume-builder-egn6vytdc-manas-s-projects-97f76173.vercel.app",
+    githubUrl: "https://github.com/ManasAyyalaraju/AI-powered-resume-builder",
+  },
+  {
     id: "personal-finance-health-predictor",
     title: "Personal Finance Health Predictor",
     company: "Personal Project",
     role: "Data Scientist / ML Engineer",
-    duration: "2024",
+    duration: "Fall 2025",
     location: "Remote",
     technologies: ["Python", "FastAPI", "XGBoost", "LightGBM", "Scikit-learn"],
     shortDescription:
@@ -66,82 +109,6 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "sudur-capital",
-    title: "Real Estate Investment Portal",
-    company: "Sudur Capital",
-    role: "Intern",
-    duration: "Nov 2024 – Present",
-    location: "Frisco, TX",
-    technologies: ["Next.js", "TypeScript", "PostgreSQL"],
-    shortDescription:
-      "Built a real estate investment portal connecting investors with land development sponsors.",
-    overview:
-      "Developed a comprehensive real estate investment platform that bridges the gap between investors and land development sponsors. The platform enables secure transactions, transparent communication, and streamlined investment processes in the real estate market.",
-    challenge:
-      "The real estate investment market lacked a centralized platform for connecting investors with development sponsors. Traditional methods were inefficient, lacked transparency, and made it difficult for investors to find suitable opportunities while sponsors struggled to reach potential investors.",
-    solution:
-      "Created a full-stack web application with a user-friendly interface for investors to browse opportunities, detailed project information, secure transaction processing, and real-time communication tools. Implemented a scalable PostgreSQL database to handle complex financial data and user relationships.",
-    results: [
-      "Successfully launched MVP within 3 months with a 7-member development team",
-      "Designed and implemented a scalable database architecture supporting 1000+ concurrent users",
-      "Improved user experience with responsive design and intuitive navigation",
-      "Streamlined agile workflows with 20+ user stories tracked in Jira",
-      "Enhanced platform security with secure authentication and data encryption",
-    ],
-    keyFeatures: [
-      "Investor dashboard with portfolio tracking",
-      "Project listing and filtering system",
-      "Secure payment processing",
-      "Real-time notifications and updates",
-      "Document management system",
-      "Communication tools between investors and sponsors",
-    ],
-    techStack: {
-      frontend: ["Next.js", "React", "TypeScript", "Tailwind CSS", "HTML5"],
-      backend: ["Node.js", "Next.js API Routes", "PostgreSQL"],
-      database: ["PostgreSQL", "Prisma ORM"],
-      tools: ["Jira", "Git", "Vercel", "Postman"],
-    },
-  },
-  {
-    id: "ibm-case-competition",
-    title: "Food Desert Detection System",
-    company: "IBM Case Competition",
-    role: "Participant",
-    duration: "Fall 2024",
-    location: "DFW Area",
-    technologies: ["Watson AI", "Python", "Data Visualization"],
-    shortDescription:
-      "Used IBM Watson AI to identify food deserts and optimize food access in DFW communities.",
-    overview:
-      "Developed an AI-powered solution to identify and address food deserts in the Dallas-Fort Worth metropolitan area. The project combined machine learning, geospatial analysis, and data visualization to provide actionable insights for improving food accessibility in underserved communities.",
-    challenge:
-      "Food deserts are areas with limited access to affordable and nutritious food, particularly affecting low-income communities. Traditional methods of identifying these areas were time-consuming and often inaccurate, making it difficult for local governments and organizations to effectively allocate resources and implement solutions.",
-    solution:
-      "Leveraged IBM Watson AI to analyze geospatial data, demographic information, and food access metrics. Created a predictive model that could identify food deserts with high accuracy and provide recommendations for optimal placement of food resources and community programs.",
-    results: [
-      "Increased food desert detection accuracy by 25% compared to traditional methods",
-      "Successfully presented data-driven strategies to IBM judges and local government officials",
-      "Provided actionable recommendations for improving food access in 15+ DFW communities",
-      "Integrated multiple API data streams for comprehensive model training",
-      "Ensured high data quality through automated validation processes",
-    ],
-    keyFeatures: [
-      "AI-powered food desert identification",
-      "Interactive data visualization dashboard",
-      "Predictive modeling for resource allocation",
-      "Geospatial analysis and mapping",
-      "Community impact assessment tools",
-      "Government reporting and recommendations",
-    ],
-    techStack: {
-      frontend: ["Python", "Jupyter Notebooks", "Matplotlib", "Plotly"],
-      backend: ["IBM Watson AI", "Python", "Pandas", "NumPy"],
-      database: ["CSV", "JSON", "Geospatial Data"],
-      tools: ["IBM Cloud", "Watson Studio", "Git", "Tableau"],
-    },
-  },
-  {
     id: "nba-schedule-analysis",
     title: "NBA Schedule Analysis System",
     company: "Data Science Analyst",
@@ -150,7 +117,7 @@ export const projects: Project[] = [
     location: "Remote",
     technologies: ["Python", "Pandas", "Matplotlib", "Seaborn"],
     shortDescription:
-      "Processed and analyzed over 1,200 NBA schedule records to evaluate patterns in game density, rest days, and back-to-back sequences.",
+      "Comprehensive data analysis system examining NBA scheduling patterns across multiple seasons to evaluate game density, rest days, and back-to-back sequences. Developed 10+ statistical models and visualizations providing clear insights into scheduling effects on team performance and player health.",
     overview:
       "Developed a comprehensive data analysis system to examine NBA scheduling patterns across multiple seasons. The project focused on understanding the impact of game density, rest periods, and back-to-back sequences on team performance and player health. This analysis provided valuable insights for teams, broadcasters, and league officials to optimize scheduling strategies.",
     challenge:
@@ -177,6 +144,44 @@ export const projects: Project[] = [
       backend: ["Python", "Pandas", "NumPy"],
       database: ["CSV", "JSON", "NBA API Data"],
       tools: ["Git", "Jupyter Lab", "Python Libraries"],
+    },
+  },
+  {
+    id: "sudur-capital",
+    title: "Real Estate Investment Portal",
+    company: "Sudur Capital",
+    role: "Intern",
+    duration: "Nov 2024 – Present",
+    location: "Frisco, TX",
+    technologies: ["Next.js", "TypeScript", "PostgreSQL"],
+    shortDescription:
+      "Designed and implemented a responsive full-stack platform using Next.js, TypeScript, HTML5, CSS, and PostgreSQL, ensuring secure, scalable, and optimized data solutions. Developed and launched a real estate investment portal connecting investors with land development sponsors, enabling seamless project evaluation and funding opportunities.",
+    overview:
+      "Developed a comprehensive real estate investment platform that bridges the gap between investors and land development sponsors. The platform enables secure transactions, transparent communication, and streamlined investment processes in the real estate market.",
+    challenge:
+      "The real estate investment market lacked a centralized platform for connecting investors with development sponsors. Traditional methods were inefficient, lacked transparency, and made it difficult for investors to find suitable opportunities while sponsors struggled to reach potential investors.",
+    solution:
+      "Created a full-stack web application with a user-friendly interface for investors to browse opportunities, detailed project information, secure transaction processing, and real-time communication tools. Implemented a scalable PostgreSQL database to handle complex financial data and user relationships.",
+    results: [
+      "Successfully launched MVP within 3 months with a 7-member development team",
+      "Designed and implemented a scalable database architecture supporting 1000+ concurrent users",
+      "Improved user experience with responsive design and intuitive navigation",
+      "Streamlined agile workflows with 20+ user stories tracked in Jira",
+      "Enhanced platform security with secure authentication and data encryption",
+    ],
+    keyFeatures: [
+      "Investor dashboard with portfolio tracking",
+      "Project listing and filtering system",
+      "Secure payment processing",
+      "Real-time notifications and updates",
+      "Document management system",
+      "Communication tools between investors and sponsors",
+    ],
+    techStack: {
+      frontend: ["Next.js", "React", "TypeScript", "Tailwind CSS", "HTML5"],
+      backend: ["Node.js", "Next.js API Routes", "PostgreSQL"],
+      database: ["PostgreSQL", "Prisma ORM"],
+      tools: ["Jira", "Git", "Vercel", "Postman"],
     },
   },
 ];
