@@ -64,7 +64,7 @@ export const projects: Project[] = [
       database: ["JSON (Temporary Data Processing)", "PDF Storage"],
       tools: ["Docker", "Render.com", "Vercel", "Git/GitHub", "CI/CD Automation"],
     },
-    liveUrl: "https://ai-powered-resume-builder-egn6vytdc-manas-s-projects-97f76173.vercel.app",
+    liveUrl: "https://ai-powered-resume-builder-peach.vercel.app/",
     githubUrl: "https://github.com/ManasAyyalaraju/AI-powered-resume-builder",
   },
   {
