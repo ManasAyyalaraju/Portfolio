@@ -89,7 +89,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 View Code
               </a>
             )}
-            {project.id !== "ai-powered-resume-tailor" && (
+            {project.id !== "refactr" && (
               <a
                 href={
                   project.id === "personal-finance-health-predictor"
