@@ -17,15 +17,30 @@ export default function AboutSection() {
             data, and modern web technologies, bringing intelligent solutions to
             life.
           </p>
-          <div className="mt-8 space-y-3">
-            <p className="text-gray-900">
-              <strong>Education:</strong> BS in Computer Information Systems,
-              University of Texas at Dallas (May 2026)
-            </p>
-            <p className="text-gray-900">
-              <strong>Skills:</strong> Python, Machine Learning, OpenAI/LLMs,
-              FastAPI, SQL, Next.js, TypeScript, PostgreSQL
-            </p>
+          <div className="mt-8 space-y-6">
+            <div className="text-gray-900">
+              <strong>Education</strong>
+              <ul className="mt-3 space-y-4 border-l-2 border-orange-500 pl-4">
+                <li>
+                  <p className="font-semibold">
+                    MS in Business Analytics
+                  </p>
+                  <p className="text-gray-700">
+                    UT Austin, McCombs School of Business
+                  </p>
+                  <p className="text-sm text-gray-500">May 2027</p>
+                </li>
+                <li>
+                  <p className="font-semibold">
+                    BS in Computer Information Systems
+                  </p>
+                  <p className="text-gray-700">
+                    University of Texas at Dallas
+                  </p>
+                  <p className="text-sm text-gray-500">May 2026</p>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -33,7 +48,7 @@ export default function AboutSection() {
         <div className="md:w-1/2 flex justify-center">
           <div className="border-orange-500 border-2 w-[320px] h-[320px] md:w-[360px] md:h-[360px] relative rounded-2xl overflow-hidden shadow-xl">
             <Image
-              src="/Fullpic.jpg"
+              src="/about.jpg"
               alt="Manas Ayyalaraju"
               fill
               className="object-cover"
