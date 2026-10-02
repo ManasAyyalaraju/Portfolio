@@ -3,19 +3,17 @@ import Image from "next/image";
 export default function AboutSection() {
   return (
     <section className="bg-white py-20 px-4 sm:px-8 md:px-12">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-16">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center gap-16">
         {/* Text */}
         <div className="md:w-1/2 space-y-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
             About Me
           </h2>
           <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-            I love turning data into stories that drive smart decisions. Whether
-            it's building AI-powered solutions or developing full-stack
-            applications, I get excited about finding patterns and presenting
-            them in clear, actionable ways. I enjoy solving problems with AI,
-            data, and modern web technologies, bringing intelligent solutions to
-            life.
+            I like turning data into stories that help people make decisions. I
+            build AI-powered tools and full-stack web apps, and I enjoy finding
+            patterns in data and presenting them clearly. Most of my work
+            involves AI, data, and modern web technologies.
           </p>
           <div className="mt-8 space-y-6">
             <div className="text-gray-900">

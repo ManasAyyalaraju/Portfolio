@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="LoRaWAN IoT network of gateways and sensors">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f172a"/><stop offset="1" stop-color="#1e293b"/></linearGradient>
+    <radialGradient id="glow"><stop offset="0" stop-color="#f97316" stop-opacity=".35"/><stop offset="1" stop-color="#f97316" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <circle cx="300" cy="200" r="170" fill="url(#glow)"/>
+  <g fill="none" stroke="#f97316" stroke-opacity=".5"><circle cx="300" cy="200" r="60"/><circle cx="300" cy="200" r="105" stroke-opacity=".35"/><circle cx="300" cy="200" r="150" stroke-opacity=".2"/></g>
+  <g stroke="#475569" stroke-width="2" stroke-dasharray="5 5">
+    <path d="M300 200L190 120M300 200L410 110M300 200L170 260M300 200L420 280M300 200L260 330M300 200L350 60"/>
+    <path d="M560 180L420 110M560 180L420 280" stroke="#f97316" stroke-dasharray="none" stroke-opacity=".7"/>
+  </g>
+  <g fill="#1e293b" stroke="#38bdf8" stroke-width="3">
+    <circle cx="190" cy="120" r="14"/><circle cx="410" cy="110" r="14"/><circle cx="170" cy="260" r="14"/><circle cx="420" cy="280" r="14"/><circle cx="260" cy="330" r="14"/><circle cx="350" cy="60" r="14"/>
+  </g>
+  <g fill="#38bdf8"><circle cx="190" cy="120" r="5"/><circle cx="410" cy="110" r="5"/><circle cx="170" cy="260" r="5"/><circle cx="420" cy="280" r="5"/><circle cx="260" cy="330" r="5"/><circle cx="350" cy="60" r="5"/></g>
+  <g transform="translate(300 200)">
+    <circle r="28" fill="#f97316"/>
+    <path d="M-12 8a17 17 0 0124 0M-18 -2a27 27 0 0136 0M-6 16a7 7 0 0112 0" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" transform="translate(0 -4)"/>
+    <circle cy="14" r="3" fill="#fff"/>
+  </g>
+  <g transform="translate(560 120)">
+    <rect width="190" height="120" rx="14" fill="#f8fafc"/>
+    <rect x="16" y="16" width="90" height="10" rx="3" fill="#0f172a"/>
+    <g fill="#fed7aa"><rect x="16" y="76" width="22" height="28" rx="3"/><rect x="46" y="58" width="22" height="46" rx="3"/><rect x="76" y="66" width="22" height="38" rx="3"/></g>
+    <rect x="106" y="40" width="22" height="64" rx="3" fill="#f97316"/><rect x="136" y="50" width="22" height="54" rx="3" fill="#f97316"/>
+    <text x="95" y="146" text-anchor="middle" font-family="ui-sans-serif,system-ui" font-size="11" fill="#94a3b8" letter-spacing="1">MOBILE APP</text>
+  </g>
+  <g font-family="ui-sans-serif,system-ui">
+    <g transform="translate(560 290)"><rect width="190" height="70" rx="14" fill="#f97316"/>
+      <text x="16" y="42" font-size="30" font-weight="800" fill="#fff">+20%</text><text x="16" y="60" font-size="11" fill="#ffedd5">IoT product network</text></g>
+    <text x="50" y="410" font-size="22" font-weight="800" fill="#fff">LoRaWAN · IoT · Performance</text>
+    <rect x="50" y="418" width="46" height="4" rx="2" fill="#f97316"/>
+  </g>
+</svg>

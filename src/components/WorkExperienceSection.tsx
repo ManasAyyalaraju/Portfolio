@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/data/projects";
 
@@ -14,46 +15,58 @@ export default function WorkExperienceSection() {
             <Link
               key={project.id}
               href={`/projects/${project.id}`}
-              className="group block h-full"
+              className="group block h-full focus:outline-none"
             >
-              <div className="bg-gray-100 p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer h-full">
-                <div className="flex flex-col justify-between h-full">
-                  <div>
-                    <div className="flex flex-col md:flex-row justify-between md:items-center mb-4">
-                      <div>
-                        <h3 className="text-xl font-semibold text-orange-500 group-hover:text-orange-600 transition-colors">
-                          {project.title}
-                        </h3>
-                        <p className="text-sm text-gray-600">
-                          {project.role} · {project.duration} ·{" "}
-                          {project.location}
-                        </p>
-                      </div>
-                      <div className="mt-2 md:mt-0 text-sm bg-orange-100 text-orange-500 px-3 py-1 rounded-full w-fit">
-                        {project.technologies.slice(0, 3).join(" · ")}
-                      </div>
-                    </div>
+              <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:border-orange-300 group-hover:shadow-xl group-focus-visible:ring-2 group-focus-visible:ring-orange-500">
+                <div className="relative aspect-[16/9] overflow-hidden bg-slate-900">
+                  <Image
+                    src={project.image}
+                    alt={project.imageAlt}
+                    fill
+                    unoptimized
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-gray-800 shadow backdrop-blur">
+                    {project.company}
+                  </span>
+                </div>
 
-                    <p className="text-gray-700 mb-4 leading-relaxed">
-                      {project.shortDescription}
-                    </p>
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="text-xl font-semibold text-gray-900 transition-colors group-hover:text-orange-600">
+                    {project.title}
+                  </h3>
+                  <p className="mt-1 text-sm font-medium text-orange-500">
+                    {project.role}
+                  </p>
+                  <p className="mt-1 text-sm text-gray-500">
+                    {project.duration} · {project.location}
+                  </p>
 
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                  <p className="mt-4 line-clamp-4 leading-relaxed text-gray-700">
+                    {project.shortDescription}
+                  </p>
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.technologies.slice(0, 5).map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-full bg-orange-50 px-2.5 py-1 text-xs font-medium text-orange-600"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 5 && (
+                      <span className="rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-500">
+                        +{project.technologies.length - 5}
+                      </span>
+                    )}
                   </div>
 
-                  <div className="flex items-center text-orange-500 group-hover:text-orange-600 transition-colors">
+                  <div className="mt-auto flex items-center pt-5 text-orange-500 transition-colors group-hover:text-orange-600">
                     <span className="text-sm font-medium">View Case Study</span>
                     <svg
-                      className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"
+                      className="ml-2 h-4 w-4 transform transition-transform group-hover:translate-x-1"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -67,7 +80,7 @@ export default function WorkExperienceSection() {
                     </svg>
                   </div>
                 </div>
-              </div>
+              </article>
             </Link>
           ))}
         </div>

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { projects, Project } from "@/data/projects";
 import {
@@ -89,22 +90,20 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 View Code
               </a>
             )}
-            {project.id !== "refactr" && (
-              <a
-                href={
-                  project.id === "personal-finance-health-predictor"
-                    ? "https://github.com/ManasAyyalaraju/personal-finance-health-predictor.git"
-                    : "https://github.com/ManasAyyalaraju"
-                }
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 rounded-xl btn-glass-orange text-black font-semibold transition"
-              >
-                <CommandLineIcon className="w-4 h-4 mr-2" />
-                My GitHub
-              </a>
-            )}
           </div>
+        </div>
+
+        {/* Project Image */}
+        <div className="relative mb-12 aspect-[16/9] overflow-hidden rounded-2xl bg-slate-900 shadow-lg">
+          <Image
+            src={project.image}
+            alt={project.imageAlt}
+            fill
+            unoptimized
+            priority
+            sizes="(min-width: 896px) 896px, 100vw"
+            className="object-cover"
+          />
         </div>
 
         {/* Project Overview */}
@@ -171,58 +170,30 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             Technology Stack
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <h3 className="font-semibold text-gray-900 mb-3">Frontend</h3>
-              <div className="space-y-2">
-                {project.techStack.frontend.map((tech) => (
-                  <span
-                    key={tech}
-                    className="block text-sm text-gray-700 bg-white px-2 py-1 rounded"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <h3 className="font-semibold text-gray-900 mb-3">Backend</h3>
-              <div className="space-y-2">
-                {project.techStack.backend.map((tech) => (
-                  <span
-                    key={tech}
-                    className="block text-sm text-gray-700 bg-white px-2 py-1 rounded"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <h3 className="font-semibold text-gray-900 mb-3">Database</h3>
-              <div className="space-y-2">
-                {project.techStack.database.map((tech) => (
-                  <span
-                    key={tech}
-                    className="block text-sm text-gray-700 bg-white px-2 py-1 rounded"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <h3 className="font-semibold text-gray-900 mb-3">Tools</h3>
-              <div className="space-y-2">
-                {project.techStack.tools.map((tech) => (
-                  <span
-                    key={tech}
-                    className="block text-sm text-gray-700 bg-white px-2 py-1 rounded"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
+            {(
+              [
+                ["Frontend", project.techStack.frontend],
+                ["Backend", project.techStack.backend],
+                ["Database", project.techStack.database],
+                ["Tools", project.techStack.tools],
+              ] as const
+            )
+              .filter(([, items]) => items.length > 0)
+              .map(([label, items]) => (
+                <div key={label} className="bg-gray-50 p-4 rounded-lg">
+                  <h3 className="font-semibold text-gray-900 mb-3">{label}</h3>
+                  <div className="space-y-2">
+                    {items.map((tech) => (
+                      <span
+                        key={tech}
+                        className="block text-sm text-gray-700 bg-white px-2 py-1 rounded"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
           </div>
         </section>
 

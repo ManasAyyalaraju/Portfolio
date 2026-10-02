@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Personal Finance Health Predictor ML charts">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f172a"/><stop offset="1" stop-color="#1e293b"/></linearGradient></defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- ROC panel -->
+  <g transform="translate(50 60)">
+    <rect width="330" height="300" rx="14" fill="#111c33" stroke="#334155"/>
+    <text x="20" y="32" font-family="ui-sans-serif,system-ui" font-size="14" font-weight="700" fill="#e2e8f0">ROC Curve · Fraud Model</text>
+    <g transform="translate(40 55)">
+      <path d="M0 0V200H250" fill="none" stroke="#64748b" stroke-width="2"/>
+      <path d="M0 200L250 0" stroke="#475569" stroke-dasharray="6 6"/>
+      <path d="M0 200C5 90 20 40 60 22C110 8 180 3 250 0V200Z" fill="#f97316" opacity=".18"/>
+      <path d="M0 200C5 90 20 40 60 22C110 8 180 3 250 0" fill="none" stroke="#f97316" stroke-width="4" stroke-linecap="round"/>
+      <path d="M0 200C30 150 80 110 130 85C180 60 220 30 250 0" fill="none" stroke="#38bdf8" stroke-width="3" opacity=".8"/>
+    </g>
+    <text x="165" y="285" text-anchor="middle" font-family="ui-sans-serif,system-ui" font-size="11" fill="#94a3b8">False positive rate</text>
+  </g>
+  <!-- clusters panel -->
+  <g transform="translate(420 60)">
+    <rect width="330" height="190" rx="14" fill="#111c33" stroke="#334155"/>
+    <text x="20" y="32" font-family="ui-sans-serif,system-ui" font-size="14" font-weight="700" fill="#e2e8f0">Customer Personas · 4 clusters</text>
+    <g>
+      <g fill="#f97316"><circle cx="80" cy="90" r="5"/><circle cx="96" cy="104" r="5"/><circle cx="68" cy="112" r="5"/><circle cx="90" cy="82" r="5"/><circle cx="104" cy="94" r="5"/><circle cx="78" cy="126" r="5"/><circle cx="112" cy="116" r="5"/></g>
+      <g fill="#38bdf8"><circle cx="200" cy="80" r="5"/><circle cx="216" cy="94" r="5"/><circle cx="190" cy="100" r="5"/><circle cx="224" cy="76" r="5"/><circle cx="208" cy="110" r="5"/><circle cx="234" cy="98" r="5"/></g>
+      <g fill="#4ade80"><circle cx="110" cy="150" r="5"/><circle cx="126" cy="162" r="5"/><circle cx="98" cy="164" r="5"/><circle cx="138" cy="148" r="5"/><circle cx="118" cy="174" r="5"/></g>
+      <g fill="#c084fc"><circle cx="262" cy="136" r="5"/><circle cx="278" cy="150" r="5"/><circle cx="250" cy="156" r="5"/><circle cx="290" cy="132" r="5"/><circle cx="270" cy="168" r="5"/></g>
+    </g>
+  </g>
+  <!-- stat tiles -->
+  <g font-family="ui-sans-serif,system-ui">
+    <g transform="translate(420 270)">
+      <rect width="157" height="90" rx="14" fill="#f97316"/>
+      <text x="16" y="48" font-size="34" font-weight="800" fill="#fff">285K+</text>
+      <text x="16" y="72" font-size="12" fill="#ffedd5">financial records</text>
+    </g>
+    <g transform="translate(593 270)">
+      <rect width="157" height="90" rx="14" fill="#111c33" stroke="#f97316" stroke-width="2"/>
+      <text x="16" y="48" font-size="34" font-weight="800" fill="#fff">85.7%</text>
+      <text x="16" y="72" font-size="12" fill="#fdba74">fraud recall</text>
+    </g>
+    <text x="50" y="410" font-size="22" font-weight="800" fill="#fff">XGBoost · SMOTE · FastAPI</text>
+    <rect x="50" y="418" width="46" height="4" rx="2" fill="#f97316"/>
+  </g>
+</svg>

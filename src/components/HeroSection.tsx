@@ -46,9 +46,8 @@ export default function HeroSection() {
         HEY, I AM <span className="text-orange-500 typing-caret">{typed}</span>
       </h1>
       <p className="mt-4 text-gray-600 text-base sm:text-lg max-w-xl">
-        A Full Stack Developer & Data Analyst skilled in React, Next.js,
-        PostgreSQL, and Python — building modern web apps and turning data into
-        insights.
+        I&apos;m an AI enthusiast who loves building web apps and turning data
+        into insights, using React, Next.js, PostgreSQL, and Python.
       </p>
       <a href="#experience" className="mt-6">
         <button className="px-6 py-3 rounded-xl btn-glass-orange font-semibold">

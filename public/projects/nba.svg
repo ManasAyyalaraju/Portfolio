@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="NBA schedule analysis calendar heatmap and rest-day chart">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f172a"/><stop offset="1" stop-color="#1e293b"/></linearGradient></defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- court lines -->
+  <g opacity=".1" stroke="#fff" fill="none" stroke-width="3"><circle cx="400" cy="225" r="70"/><path d="M400 0V450"/><rect x="-10" y="160" width="120" height="130"/><rect x="690" y="160" width="120" height="130"/></g>
+  <!-- calendar -->
+  <g transform="translate(50 60)">
+    <rect width="400" height="300" rx="14" fill="#111c33" stroke="#334155"/>
+    <text x="20" y="32" font-family="ui-sans-serif,system-ui" font-size="14" font-weight="700" fill="#e2e8f0">Game Density · Season Calendar</text>
+    <g font-family="ui-sans-serif,system-ui" font-size="10" fill="#64748b" text-anchor="middle"><text x="48" y="62">M</text><text x="100" y="62">T</text><text x="152" y="62">W</text><text x="204" y="62">T</text><text x="256" y="62">F</text><text x="308" y="62">S</text><text x="360" y="62">S</text></g>
+    <!-- rows: 5 weeks x 7 days; colors: none #1e293b, game #7c2d12, b2b #f97316 -->
+    <g transform="translate(26 72)">
+      <g fill="#1e293b">
+        <rect x="0" y="0" width="44" height="40" rx="6"/><rect x="52" y="0" width="44" height="40" rx="6"/><rect x="104" y="0" width="44" height="40" rx="6"/><rect x="156" y="0" width="44" height="40" rx="6"/><rect x="208" y="0" width="44" height="40" rx="6"/><rect x="260" y="0" width="44" height="40" rx="6"/><rect x="312" y="0" width="44" height="40" rx="6"/>
+        <rect x="0" y="46" width="44" height="40" rx="6"/><rect x="52" y="46" width="44" height="40" rx="6"/><rect x="104" y="46" width="44" height="40" rx="6"/><rect x="156" y="46" width="44" height="40" rx="6"/><rect x="208" y="46" width="44" height="40" rx="6"/><rect x="260" y="46" width="44" height="40" rx="6"/><rect x="312" y="46" width="44" height="40" rx="6"/>
+        <rect x="0" y="92" width="44" height="40" rx="6"/><rect x="52" y="92" width="44" height="40" rx="6"/><rect x="104" y="92" width="44" height="40" rx="6"/><rect x="156" y="92" width="44" height="40" rx="6"/><rect x="208" y="92" width="44" height="40" rx="6"/><rect x="260" y="92" width="44" height="40" rx="6"/><rect x="312" y="92" width="44" height="40" rx="6"/>
+        <rect x="0" y="138" width="44" height="40" rx="6"/><rect x="52" y="138" width="44" height="40" rx="6"/><rect x="104" y="138" width="44" height="40" rx="6"/><rect x="156" y="138" width="44" height="40" rx="6"/><rect x="208" y="138" width="44" height="40" rx="6"/><rect x="260" y="138" width="44" height="40" rx="6"/><rect x="312" y="138" width="44" height="40" rx="6"/>
+      </g>
+      <!-- games -->
+      <g fill="#9a3412">
+        <rect x="52" y="0" width="44" height="40" rx="6"/><rect x="208" y="0" width="44" height="40" rx="6"/>
+        <rect x="0" y="46" width="44" height="40" rx="6"/><rect x="156" y="46" width="44" height="40" rx="6"/><rect x="312" y="46" width="44" height="40" rx="6"/>
+        <rect x="104" y="92" width="44" height="40" rx="6"/><rect x="312" y="92" width="44" height="40" rx="6"/>
+        <rect x="52" y="138" width="44" height="40" rx="6"/><rect x="260" y="138" width="44" height="40" rx="6"/>
+      </g>
+      <!-- back-to-backs -->
+      <g fill="#f97316">
+        <rect x="260" y="0" width="44" height="40" rx="6"/><rect x="312" y="0" width="44" height="40" rx="6"/>
+        <rect x="52" y="46" width="44" height="40" rx="6"/><rect x="104" y="46" width="44" height="40" rx="6"/>
+        <rect x="156" y="92" width="44" height="40" rx="6"/><rect x="208" y="92" width="44" height="40" rx="6"/>
+        <rect x="0" y="138" width="44" height="40" rx="6"/>
+      </g>
+    </g>
+    <g font-family="ui-sans-serif,system-ui" font-size="11" fill="#94a3b8">
+      <rect x="26" y="268" width="12" height="12" rx="3" fill="#9a3412"/><text x="44" y="278">Game</text>
+      <rect x="100" y="268" width="12" height="12" rx="3" fill="#f97316"/><text x="118" y="278">Back-to-back</text>
+      <rect x="210" y="268" width="12" height="12" rx="3" fill="#1e293b" stroke="#475569"/><text x="228" y="278">Rest day</text>
+    </g>
+  </g>
+  <!-- rest day bars -->
+  <g transform="translate(480 60)">
+    <rect width="270" height="190" rx="14" fill="#111c33" stroke="#334155"/>
+    <text x="20" y="32" font-family="ui-sans-serif,system-ui" font-size="14" font-weight="700" fill="#e2e8f0">Rest Days Between Games</text>
+    <g transform="translate(26 50)">
+      <path d="M0 120H220" stroke="#475569" stroke-width="2"/>
+      <rect x="6" y="40" width="30" height="80" rx="4" fill="#f97316"/>
+      <rect x="50" y="10" width="30" height="110" rx="4" fill="#fb923c"/>
+      <rect x="94" y="46" width="30" height="74" rx="4" fill="#9a3412"/>
+      <rect x="138" y="86" width="30" height="34" rx="4" fill="#9a3412"/>
+      <rect x="182" y="106" width="30" height="14" rx="4" fill="#9a3412"/>
+    </g>
+  </g>
+  <g font-family="ui-sans-serif,system-ui">
+    <g transform="translate(480 270)"><rect width="270" height="90" rx="14" fill="#f97316"/>
+      <text x="18" y="50" font-size="34" font-weight="800" fill="#fff">1,200+</text><text x="18" y="74" font-size="12" fill="#ffedd5">schedule records analyzed</text></g>
+    <text x="50" y="410" font-size="22" font-weight="800" fill="#fff">Python · pandas · seaborn</text>
+    <rect x="50" y="418" width="46" height="4" rx="2" fill="#f97316"/>
+  </g>
+</svg>
