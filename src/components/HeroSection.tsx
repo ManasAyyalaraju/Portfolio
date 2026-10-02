@@ -46,8 +46,9 @@ export default function HeroSection() {
         HEY, I AM <span className="text-orange-500 typing-caret">{typed}</span>
       </h1>
       <p className="mt-4 text-gray-600 text-base sm:text-lg max-w-xl">
-        I&apos;m an AI enthusiast who loves building web apps and turning data
-        into insights, using React, Next.js, PostgreSQL, and Python.
+        I am a tech enthusiast who loves building apps and turning data into
+        insights, using the latest AI technology to solve problems and create
+        impact.
       </p>
       <a href="#experience" className="mt-6">
         <button className="px-6 py-3 rounded-xl btn-glass-orange font-semibold">
