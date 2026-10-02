@@ -144,20 +144,46 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </section>
 
-        {/* Results */}
+        {/* Work Done */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Results & Impact
-          </h2>
-          <div className="space-y-4">
-            {project.results.map((result, index) => (
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Work Done</h2>
+          <ol className="space-y-5">
+            {project.implementation.map((step, index) => (
+              <li key={step.title} className="flex items-start gap-4">
+                <span className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-orange-500 text-sm font-bold text-white">
+                  {index + 1}
+                </span>
+                <div>
+                  <h3 className="font-semibold text-gray-900">{step.title}</h3>
+                  <p className="text-gray-700 leading-relaxed">{step.detail}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <h3 className="mt-10 mb-4 text-lg font-semibold text-gray-900">
+            Impact
+          </h3>
+          <div className="space-y-3">
+            {project.results.map((result) => (
               <div
-                key={index}
+                key={result}
                 className="flex items-start p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500"
               >
-                <div className="w-6 h-6 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">
-                  {index + 1}
-                </div>
+                <svg
+                  className="mr-3 mt-0.5 h-5 w-5 flex-shrink-0 text-orange-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
                 <p className="text-gray-700">{result}</p>
               </div>
             ))}

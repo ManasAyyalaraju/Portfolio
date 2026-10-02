@@ -12,6 +12,7 @@ export interface Project {
   solution: string;
   results: string[];
   keyFeatures: string[];
+  implementation: { title: string; detail: string }[];
   techStack: {
     frontend: string[];
     backend: string[];
@@ -35,32 +36,37 @@ export const projects: Project[] = [
     location: "Remote",
     technologies: ["Next.js 16", "React 19", "TypeScript", "FastAPI", "OpenAI GPT-4o-mini", "Supabase", "Chrome Extension", "LaTeX"],
     shortDescription:
-      "Refactr tailors your resume to a job in seconds, either in the web app or directly on a LinkedIn, Indeed, Glassdoor, or Handshake posting through a Chrome extension. A verification step checks every rewritten bullet so the model never claims a skill that isn't on your resume. Live at refactrapp.com.",
+      "Refactr rewrites your resume to fit a specific job in seconds, right on the job posting or in the web app. It matches the job's keywords without ever claiming a skill you don't have. Live at refactrapp.com.",
     overview:
-      "Refactr has three parts: a Next.js web app, a Manifest V3 Chrome extension, and a stateless FastAPI backend. You upload a resume once, then either tailor it to a job description or reformat it into a clean, ATS-friendly PDF. Both the web app and the extension share the same Supabase auth and storage, so one sign-in covers both. Tailoring runs in five stages (Parse, Classify, Generate, Verify, and Lock). Each stage does one job, which makes it easy to test.",
+      "Refactr helps job seekers send a resume that fits each role. You upload your resume once, then tailor it to any job description or turn it into a clean PDF that applicant tracking systems can read. It works in the web app and as a Chrome extension on LinkedIn, Indeed, Glassdoor, and Handshake, so you can tailor a resume without leaving the posting.",
     challenge:
-      "Job seekers spend hours editing a resume for every application, and they still miss keywords that ATS systems look for. AI resume tools add a second problem: a model can quietly invent skills or experience the candidate doesn't have. I wanted a tool that tailors a resume in seconds, works on the job boards people already use, and never fabricates anything.",
+      "Job seekers spend hours editing a resume for every application, and they still miss keywords that recruiters' screening software looks for. AI tools make this faster but add a risk: they can invent skills or experience you don't have, which can cost you an interview. I wanted a tool that was fast, worked where people already apply, and could be trusted to stick to the truth.",
     solution:
-      "The web app and the Chrome extension talk to Supabase directly for auth and storage, protected by row-level security tied to auth.uid(). The FastAPI backend is stateless. It never holds a service-role key and only handles parsing, tailoring, reformatting, and PDF rendering. For tailoring, the backend parses the resume and the job description at the same time with OpenAI structured-output calls bound to Pydantic schemas, and classifies the job's industry in the same call. It then rewrites bullets using guidance specific to that industry. The Verify stage checks each bullet against the job's required skills and rewrites or reverts any bullet that adds a skill missing from the original resume. The Lock stage keeps company, title, dates, and locations fixed in code. Each stage is timed and reported in an X-Pipeline-Timings header. The frontend runs on Vercel and the backend on Render.",
+      "Refactr reads your resume and the job description, rewrites your bullets to match what the employer asks for, and then checks every rewritten bullet against your original resume. Any bullet that adds a skill you don't have gets corrected or reverted. Your companies, titles, dates, and locations are locked and never change. One sign-in works in both the web app and the extension.",
     results: [
-      "Built a Chrome extension that detects job postings on LinkedIn, Indeed, Glassdoor, and Handshake and tailors a saved resume without leaving the tab",
-      "Designed a five-stage pipeline (Parse, Classify, Generate, Verify, Lock) that catches and corrects any skill the AI adds that isn't on the candidate's resume",
-      "Put auth and storage for the web app and extension on Supabase with row-level security, so one sign-in works in both",
-      "Kept the backend stateless and free of credentials, so an auth or storage outage doesn't affect the tailoring pipeline",
-      "Built two ATS-friendly resume templates (standard and Technical Skills) with LaTeX PDF rendering",
-      "Deployed to refactrapp.com, with the frontend on Vercel and the backend on Render",
-      "Improved keyword recall by 40% across the industries the classifier detects, and ATS match alignment by 30 to 35% on test job descriptions",
+      "Improved keyword recall by 40%, so resumes pick up more of what employers look for",
+      "Improved ATS match alignment by 30 to 35% on test job descriptions",
+      "Tailors a resume in seconds, directly on LinkedIn, Indeed, Glassdoor, and Handshake postings",
+      "Never claims a skill that isn't on your resume, because every rewritten bullet is checked",
+      "Keeps your company, title, dates, and locations exactly as written",
+      "Live at refactrapp.com with a web app and a Chrome extension",
     ],
     keyFeatures: [
-      "Chrome extension (Manifest V3) that appears on job postings and tailors a saved resume in place",
-      "One Supabase sign-in for both the web app and the extension",
-      "Five-stage pipeline: Parse, Classify, Generate, Verify, Lock",
-      "Verification step that checks each bullet against the job's required skills and reverts any invented skill",
-      "Locked fields: company, title, dates, and locations are enforced in code, so the model can't rewrite them",
-      "Reformat mode that outputs an ATS-friendly PDF and keeps bullets word for word",
-      "Two resume templates, including a Technical Skills layout with grouped skill sections",
-      "Dashboard with your current resume, resume history, and job application stats",
-      "Per-request pipeline timings in an X-Pipeline-Timings response header",
+      "Tailor a resume to any job in seconds",
+      "Works right on job postings through a Chrome extension",
+      "Checks every rewritten bullet so no skill is invented",
+      "Keeps companies, titles, dates, and locations unchanged",
+      "Reformat mode: a clean, ATS-friendly PDF with your wording untouched",
+      "Two resume templates, including one built for technical skills",
+      "Dashboard with your current resume, history, and application stats",
+    ],
+    implementation: [
+      { title: "Three loosely coupled pieces", detail: "A Next.js 16 and React 19 web app, a Manifest V3 Chrome extension built with esbuild, and a stateless FastAPI backend. The web app and extension talk to Supabase directly for auth and storage, with row-level security tied to auth.uid(). The backend never sees a service-role key and only parses, tailors, reformats, and renders PDFs." },
+      { title: "Parse and Classify", detail: "The resume and job description are parsed at the same time with OpenAI GPT-4o-mini structured-output calls bound to Pydantic schemas. The same call classifies the job's industry, so later steps can use guidance written for that field." },
+      { title: "Generate", detail: "Bullets are rewritten with prompt guidance specific to the job's industry, so the emphasis matches what that field looks for." },
+      { title: "Verify and Lock", detail: "Every rewritten bullet is checked against the job's required skills, and any bullet that adds a skill missing from the original resume is rewritten or reverted. Company, title, dates, and locations are locked in code, so the model can't change them." },
+      { title: "PDF output and observability", detail: "Resumes are rendered to PDF with LaTeX in two ATS-friendly templates. Each pipeline stage is timed and returned in an X-Pipeline-Timings header." },
+      { title: "Deployment", detail: "The backend runs in Docker on Render and the frontend on Vercel with CI/CD automation, on the custom domain refactrapp.com." },
     ],
     techStack: {
       frontend: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS"],
@@ -82,27 +88,32 @@ export const projects: Project[] = [
     location: "Frisco, TX",
     technologies: ["Next.js", "TypeScript", "PostgreSQL", "Jira"],
     shortDescription:
-      "I built a responsive full-stack portal for Sudur Capital, a Frisco land development firm. Investors register, evaluate opportunities, and invest in projects, and sponsors showcase their land developments to attract funding. We delivered the MVP in 3 months.",
+      "A portal for Sudur Capital, a Frisco land development firm, that lets investors find and fund projects and lets sponsors show their developments to attract funding. We delivered the first version in 3 months.",
     overview:
-      "Sudur Capital is a Frisco, TX firm that acquires, entitles, and develops land for residential and mixed-use communities. As a full-stack web development intern, I helped design and build an investment portal that connects investors with land development projects and gives sponsors a place to present them.",
+      "Sudur Capital is a Frisco, TX firm that acquires and develops land for residential and mixed-use communities. As a full-stack web development intern, I helped build a portal that connects investors with land development projects and gives project sponsors a place to present their work.",
     challenge:
-      "Investors needed one place to find and evaluate land development opportunities, and sponsors needed a clear way to show their projects and attract funding. The MVP also had to ship on a tight timeline.",
+      "Investors had no single place to find and compare land development opportunities, and sponsors needed a clear way to present their projects and attract funding. The first version also had to launch on a tight timeline.",
     solution:
-      "I designed and built the platform with Next.js, TypeScript, HTML5, CSS, and PostgreSQL. Investors can register, evaluate opportunities, and invest in projects. Sponsors can showcase land developments. To keep delivery on schedule, I wrote and managed more than 20 user stories in Jira.",
+      "We built a website where investors can sign up, review opportunities, and invest in projects, and where sponsors can show their land developments to the people who might fund them. I kept the team on schedule by writing and managing more than 20 user stories in Jira.",
     results: [
-      "Delivered the portal's MVP within 3 months",
-      "Wrote and managed 20+ user stories in Jira, which tightened workflows and collaboration",
-      "Launched a portal where investors register, evaluate opportunities, and invest in projects",
+      "Delivered the first version of the portal in 3 months",
+      "Gave investors one place to register, evaluate opportunities, and invest",
       "Gave sponsors a way to showcase land developments and attract funding",
-      "Improved user engagement and accessibility with a responsive design",
+      "Kept the project on schedule with 20+ user stories managed in Jira",
+      "Made the site easier to use on any device, which improved engagement and accessibility",
     ],
     keyFeatures: [
-      "Investor registration and onboarding",
-      "Opportunity evaluation for land development projects",
+      "Investor sign-up and onboarding",
+      "Clear project details for evaluating opportunities",
       "Investing in projects through the portal",
-      "Sponsor tools for showcasing land developments and attracting funding",
-      "Responsive layout across devices",
-      "Agile delivery tracked with Jira user stories",
+      "Sponsor pages for showcasing land developments",
+      "A layout that works on phones, tablets, and desktops",
+    ],
+    implementation: [
+      { title: "Full-stack build", detail: "Designed and implemented the platform with Next.js, TypeScript, HTML5, and CSS on the front end and PostgreSQL for the data, so investor and project information is stored and queried in one place." },
+      { title: "Investor and sponsor flows", detail: "Investors register, evaluate opportunities, and invest in projects. Sponsors have pages to showcase land developments and attract funding." },
+      { title: "Responsive layout", detail: "The interface adapts across phones, tablets, and desktops, which improved engagement and accessibility." },
+      { title: "Agile delivery", detail: "I wrote and managed 20+ user stories in Jira, which streamlined workflows and kept the team on pace for the 3-month MVP." },
     ],
     techStack: {
       frontend: ["Next.js", "TypeScript", "HTML5", "CSS"],
@@ -122,27 +133,35 @@ export const projects: Project[] = [
     location: "Remote",
     technologies: ["Python", "XGBoost", "LightGBM", "Scikit-learn", "FastAPI"],
     shortDescription:
-      "A machine learning project that predicts credit risk, detects fraud, and segments customers across 285,000+ financial records. The fraud model reaches 85.7% recall using XGBoost and SMOTE.",
+      "A project that helps a lender spot risky loans, catch fraud, and group customers by behavior. It reaches 85.7% recall on fraud and cuts manual loan review effort by 30%.",
     overview:
-      "This project takes raw financial data through exploration, feature engineering, modeling, and deployment. It covers credit risk prediction, fraud detection, and customer segmentation, using three datasets (Lending Club, a credit card fraud dataset, and German Credit) with more than 285,000 records in total.",
+      "This project looks at 285,000+ financial records to answer three business questions: which borrowers are likely to be a credit risk, which transactions are fraud, and what kinds of customers a financial company serves. The goal was to turn raw data into predictions a lender or marketing team can act on.",
     challenge:
-      "Fraud data is extremely imbalanced, credit data is prone to leakage, and a model that stays in a notebook doesn't help anyone. The results had to be accurate, easy to explain, and available to other systems.",
+      "Fraud is rare, so it's easy to miss. Reviewing loans by hand takes time, and marketing campaigns often go to everyone instead of the right customers. The results also had to be usable by other systems, not just sit in a notebook.",
     solution:
-      "For each problem I trained and compared several models. Credit risk used logistic regression, random forest, XGBoost, and LightGBM. Fraud detection used Isolation Forest and XGBoost with SMOTE balancing. Segmentation used K-means, hierarchical clustering, and DBSCAN with PCA. I engineered 26+ features, made 40+ visualizations, and served predictions through a FastAPI service with Pydantic validation.",
+      "I built models that score credit risk, flag likely fraud, and sort customers into groups, then made them available through an API so other tools can use the predictions. I also made 40+ charts to explain what drives the results in plain terms.",
     results: [
-      "Processed over 285,000 financial records across three datasets",
-      "Reached 85.7% recall on fraud detection using XGBoost and SMOTE",
-      "Engineered 26+ features and made 40+ visualizations, including ROC curves, confusion matrices, and feature plots",
-      "Found 4 customer personas through clustering, which supports personalized financial recommendations",
-      "Shipped 3 FastAPI prediction endpoints with Pydantic validation, cutting manual loan review effort by 30% and improving marketing conversion by 15 to 20%",
+      "Caught 85.7% of fraud cases in the fraud detection model",
+      "Reduced manual loan review effort by 30%",
+      "Improved marketing conversion by 15 to 20% by identifying 4 distinct customer personas",
+      "Analyzed more than 285,000 financial records across three datasets",
+      "Explained results with 40+ visualizations that non-technical teams can read",
+      "Delivered 3 prediction endpoints that other tools can call",
     ],
     keyFeatures: [
-      "Credit risk prediction with logistic regression, random forest, XGBoost, and LightGBM",
-      "Fraud detection with Isolation Forest and XGBoost, using SMOTE for class imbalance",
-      "Customer segmentation with K-means, hierarchical clustering, and DBSCAN plus PCA",
-      "26+ engineered features across three datasets",
-      "40+ visualizations, including ROC curves, confusion matrices, and feature plots",
-      "FastAPI prediction endpoints with Pydantic request validation",
+      "Credit risk prediction to flag risky borrowers",
+      "Fraud detection that catches rare, costly events",
+      "Customer personas for more personalized recommendations",
+      "40+ charts that explain what drives each prediction",
+      "A ready-to-use API for loan review and marketing teams",
+    ],
+    implementation: [
+      { title: "Three datasets, three problems", detail: "Lending Club data for credit risk, a credit card fraud dataset for fraud detection, and German Credit data as an additional credit check, together over 285,000 records." },
+      { title: "Credit risk", detail: "Compared logistic regression, random forest, XGBoost, and LightGBM to find the model that best separates safe borrowers from risky ones." },
+      { title: "Fraud detection", detail: "Fraud is rare, so the data is heavily imbalanced. I balanced it with SMOTE and trained XGBoost and Isolation Forest, reaching 85.7% recall." },
+      { title: "Customer segmentation", detail: "Used PCA with K-means, hierarchical clustering, and DBSCAN to find 4 customer personas." },
+      { title: "Features and evaluation", detail: "Engineered 26+ features and evaluated models with 40+ visualizations, including ROC curves, confusion matrices, and feature plots." },
+      { title: "Serving predictions", detail: "Exposed the models through a FastAPI service with 3 prediction endpoints and Pydantic request validation." },
     ],
     techStack: {
       frontend: ["Jupyter Notebooks", "Matplotlib", "Seaborn"],
@@ -163,25 +182,30 @@ export const projects: Project[] = [
     location: "Dallas–Fort Worth, TX",
     technologies: ["Watson AI", "Geospatial Data", "APIs", "Predictive Modeling"],
     shortDescription:
-      "A team case competition with IBM as the client. I used Watson AI on geographical and API data to improve food desert detection accuracy across the DFW region by 25%, then presented our recommendations to IBM judges.",
+      "A team case competition with IBM as the client. We helped identify where people lack access to healthy food across the DFW region, improved detection accuracy by 25%, and presented our recommendations to IBM judges.",
     overview:
-      "IBM was the client for this case competition on food insecurity in the Dallas–Fort Worth area. As an AI & Data Analytics Consultant on a cross-functional team, I helped identify underserved communities and build data-driven strategies for local governments.",
+      "IBM was the client for this case competition on food insecurity in the Dallas–Fort Worth area. As an AI & Data Analytics Consultant on a cross-functional team, I helped find the communities that need food access the most and recommend how local governments could help.",
     challenge:
-      "Food deserts are hard to pinpoint, and local governments need accurate information to decide where to send resources.",
+      "Food deserts, areas with little access to healthy food, are hard to pinpoint, and local governments need accurate information to decide where to send help.",
     solution:
-      "I used Watson AI to analyze geographical and API-based data, which made it more accurate at identifying underserved areas across DFW. Our team built a predictive model that guides resource allocation for local governments and improves community food access, and we presented the findings to IBM judges.",
+      "Our team used IBM Watson AI to analyze location and API data to find underserved neighborhoods across DFW. We turned that into a model that helps local governments decide where to focus resources, then presented our findings and recommendations to IBM judges.",
     results: [
-      "Improved food desert detection accuracy by 25% using Watson AI on geographical and API-based data",
-      "Identified underserved areas across the DFW region more precisely",
-      "Built a predictive model with a cross-functional team to guide resource allocation for local governments",
-      "Presented insights, analytics, and recommendations on reducing food insecurity to IBM judges",
+      "Improved food desert detection accuracy by 25%",
+      "Identified underserved communities across the DFW region more precisely",
+      "Gave local governments a data-driven way to decide where to focus resources",
+      "Presented findings and recommendations on reducing food insecurity to IBM judges",
     ],
     keyFeatures: [
-      "Food desert detection with Watson AI",
-      "Analysis of geographical and API-based data",
-      "Predictive model for community food access",
-      "Resource allocation recommendations for local governments",
+      "Finds neighborhoods with limited access to healthy food",
+      "Recommendations that help local governments allocate resources",
+      "Built and presented with a cross-functional team",
       "Final presentation to IBM judges",
+    ],
+    implementation: [
+      { title: "Data", detail: "Combined geographical data with data pulled from APIs to map food access across the DFW region." },
+      { title: "Analysis", detail: "Used IBM Watson AI to analyze that data and flag underserved areas, which improved detection accuracy by 25%." },
+      { title: "Predictive model", detail: "Built, with a cross-functional team, a predictive model that points local governments to where resources are needed most." },
+      { title: "Presentation", detail: "Packaged the insights, analytics, and recommendations into a presentation for IBM judges." },
     ],
     techStack: {
       frontend: [],
@@ -201,25 +225,30 @@ export const projects: Project[] = [
     location: "Remote",
     technologies: ["Python", "pandas", "Jupyter", "Matplotlib", "Seaborn"],
     shortDescription:
-      "I analyzed 1,200+ NBA schedule records across multiple seasons to study game density, rest days, and back-to-back games, using 10+ statistical models and visualizations.",
+      "An analysis of 1,200+ NBA games across multiple seasons that shows how rest days and back-to-back games vary through the schedule, with 10+ charts and models that make the patterns easy to see.",
     overview:
-      "A data analysis project on NBA scheduling patterns across multiple seasons. I focused on game density, rest days, and back-to-back games, and how they show up in the schedule.",
+      "This project looks at how the NBA schedule affects teams: how many games they play in a stretch, how much rest they get, and how often they play on back-to-back nights. The goal was to turn a long schedule into clear takeaways.",
     challenge:
-      "An NBA schedule fits travel, rest, and competitive balance into a tight calendar. To understand how density and back-to-backs vary, the historical data needed systematic analysis and a clear presentation.",
+      "An NBA schedule is packed with travel and short turnarounds, and the pattern is hard to see in a spreadsheet. The analysis needed to be clear enough for anyone to follow and easy to repeat for future seasons.",
     solution:
-      "I processed 1,200+ schedule records with Python, pandas, and Jupyter Notebook, then built 10+ statistical models and visualizations with matplotlib and seaborn. Structured, documented code keeps the analysis reproducible.",
+      "I analyzed 1,200+ games across multiple seasons and built 10+ charts and models showing how game density, rest days, and back-to-backs vary. I documented each step so the work can be repeated and checked.",
     results: [
-      "Processed and analyzed over 1,200 NBA schedule records across multiple seasons",
-      "Built 10+ statistical models and visualizations with matplotlib and seaborn",
-      "Improved workflow efficiency and reproducibility by 30% through structured code and thorough documentation",
+      "Analyzed 1,200+ NBA games across multiple seasons",
+      "Turned the schedule into 10+ clear charts and models",
+      "Made the analysis 30% more efficient and easier to repeat through organized, well-documented work",
       "Presented the results in a clear, professional format",
     ],
     keyFeatures: [
-      "Schedule data processing with pandas",
-      "Game density and rest day analysis",
-      "Back-to-back game evaluation",
-      "10+ statistical models and visualizations",
-      "Documented, reproducible notebooks",
+      "Shows how often teams play back-to-back games",
+      "Compares rest days and game density across seasons",
+      "10+ charts that make patterns easy to see",
+      "Documented so it can be repeated for future seasons",
+    ],
+    implementation: [
+      { title: "Data processing", detail: "Loaded and cleaned 1,200+ NBA schedule records with Python and pandas in Jupyter Notebook." },
+      { title: "Schedule metrics", detail: "Measured game density, rest days, and back-to-back sequences across multiple seasons." },
+      { title: "Modeling and charts", detail: "Built 10+ statistical models and visualizations with matplotlib and seaborn." },
+      { title: "Reproducibility", detail: "Followed structured coding practices and documented each step, which improved workflow efficiency and reproducibility by 30%." },
     ],
     techStack: {
       frontend: ["Jupyter Notebook", "Matplotlib", "Seaborn"],
@@ -239,25 +268,31 @@ export const projects: Project[] = [
     location: "Plano, TX",
     technologies: ["LoRaWAN", "IoT", "Mobile App", "Performance Analysis"],
     shortDescription:
-      "An internship at a LoRaWAN network infrastructure company. I grew the IoT product network by 20% with a mobile application, raised device productivity by 15% using LoRaWAN, and increased active devices by 25% through testing and troubleshooting.",
+      "An internship at a company that builds wireless networks for connected devices. I helped grow the network by 20%, raise device productivity by 15%, and increase active devices by 25%.",
     overview:
-      "Maxwell IoT Technologies builds network infrastructure on the LoRaWAN protocol so IoT sensors can communicate over long distances. As an IoT Systems & Performance Intern, I worked on network growth, device performance, and customer issue resolution.",
+      "Maxwell IoT Technologies builds wireless network infrastructure so connected sensors and devices can communicate over long distances. As an IoT Systems & Performance Intern, I worked on growing the network, improving how well devices perform, and solving customer problems.",
     challenge:
-      "A growing IoT network needs scalable connectivity, reliable devices, and fast fixes when customers run into problems.",
+      "A growing network of connected devices has to keep expanding, keep devices working well, and fix customer problems quickly.",
     solution:
-      "I developed a mobile application and added connectivity strategies to improve scalability and reliability. I applied LoRaWAN technology to build a more efficient network, and I supported system testing, troubleshooting, and client issue resolution, documenting each fix.",
+      "I built a mobile application and new ways to connect devices, which helped the network grow. I used LoRaWAN, a long-range wireless technology, to make the network more efficient. I also tested the system, troubleshot issues, helped resolve customer problems, and documented each fix.",
     results: [
-      "Expanded the IoT product network by 20% with a mobile application and new connectivity strategies",
-      "Raised device productivity by 15% by applying LoRaWAN technology",
-      "Increased the number of active devices by 25% through system testing, troubleshooting, and client issue resolution",
-      "Documented solutions that improved customer satisfaction and system performance",
+      "Grew the IoT product network by 20%",
+      "Boosted device productivity by 15%",
+      "Increased the number of active devices by 25%",
+      "Improved customer satisfaction and system performance by documenting solutions",
     ],
     keyFeatures: [
-      "Mobile application that supported IoT network growth",
-      "LoRaWAN network build-out to raise device productivity",
-      "IoT performance analysis and optimization",
-      "System testing and troubleshooting",
-      "Client issue resolution with documented fixes",
+      "A mobile app that helped the network grow",
+      "A more efficient long-range wireless network",
+      "Performance analysis to keep devices running well",
+      "Testing and troubleshooting to keep more devices active",
+      "Documented fixes for customer issues",
+    ],
+    implementation: [
+      { title: "Mobile application", detail: "Developed a mobile application and added new connectivity strategies, which improved scalability and reliability and grew the network by 20%." },
+      { title: "LoRaWAN network", detail: "Applied LoRaWAN, a long-range, low-power wireless protocol, to build a more efficient network and raise device productivity by 15%." },
+      { title: "Testing and troubleshooting", detail: "Supported system testing, troubleshooting, and client issue resolution, which increased the number of active devices by 25%." },
+      { title: "Performance analysis", detail: "Analyzed and optimized IoT performance, and documented each solution to improve customer satisfaction and system performance." },
     ],
     techStack: {
       frontend: ["Mobile Application"],
